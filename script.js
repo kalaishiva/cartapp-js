@@ -13,7 +13,7 @@ function addToCart() {
     itemAdded.append(itemName);
 
 
-    //product price
+    //product price addition
     let priceAdd = document.createElement('p');
     priceAdd.innerHTML = priceCal.innerHTML;
     itemAdded.append(priceAdd);
