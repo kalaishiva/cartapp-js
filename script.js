@@ -7,8 +7,11 @@ let pdtName = document.querySelector(".pdtName");
 //let priceCal = document.querySelector(".priceCal");
 let itemDivContainer = document.querySelector(".itemDivContainer");
 
-let buttonCart = document.querySelector('.buttonCart');
-buttonCart.addEventListener('click', addToCart)
+let buttonCart = document.querySelectorAll('.buttonCart');
+buttonCart.forEach((button) => {
+    button.addEventListener('click', addToCart)
+
+});
 
 function addToCart(event) {
     let division = event.target.parentElement.parentElement.parentElement;
