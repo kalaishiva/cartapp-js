@@ -1,33 +1,28 @@
 let productDetails = [];
 
 let pdtName = document.querySelector(".pdtName");
-let price = document.querySelector(".price");
+// let price = document.querySelector(".price");
 
-let itemAdded = document.querySelector(".itemAdded");
-let priceCal = document.querySelector(".priceCal");
+//let itemAdded = document.querySelector(".itemAdded");
+//let priceCal = document.querySelector(".priceCal");
+let itemDivContainer = document.querySelector(".itemDivContainer");
 
+let buttonCart = document.querySelector('.buttonCart');
+buttonCart.addEventListener('click', addToCart)
 
+function addToCart(event) {
+    let division = event.target.parentElement.parentElement.parentElement;
+    let pdtName = division.children[1].children[0];
+    let price = division.children[4].children[1];
+    console.log(price);
 
-function addToCart() {
-    let oldDiv = document.querySelector(".itemDiv")
-    let newDiv = oldDiv.cloneNode(true);
+    let itemDiv = document.querySelector('.itemDiv');
+    let cloneItemDiv = itemDiv.cloneNode(true);
 
-    // console.log(newDiv);
+    itemDivContainer.append(cloneItemDiv);
 
-    //product item
-    /*  let itemName = itemAdded.nextElementSibling.innerHTML;
-    //console.log(itemName);
-    // newDiv.append(itemName);
-  newDiv.append(itemName); */
-
-
-
-    //product price addition
-    let priceAdd = document.createElement('p');
-    priceAdd.innerHTML = price.innerHTML;
-    newDiv.append(priceAdd);
-
-    // console.log(newDiv);
+    cloneItemDiv.children[0].innerText = pdtName.innerHTML;
+    cloneItemDiv.children[1].innerText = price.innerHTML;
 
 
 }
