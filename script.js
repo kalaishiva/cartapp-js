@@ -8,10 +8,28 @@ let buttonCart = document.querySelectorAll('.buttonCart');
 buttonCart.forEach((button) => {
     button.addEventListener('click', addToCart)
 });
+//selected quantity
+/* let selectedQuantity = document.querySelectorAll("option");
+selectedQuantity.addEventListener('click', showQuantity);
+//console.log(selectedQuantity);
+function showQuantity() {
+    console.log("first")
+} */
 
+
+
+
+
+//add to cart
 function addToCart(event) {
     let division = event.target.parentElement.parentElement.parentElement;
     let pdtName = division.children[1].children[0];
+    let itemQuantity = division.children[1].children[1];
+
+    //option selected
+    let itemSelected = itemQuantity.options[itemQuantity.selectedIndex].text;
+    console.log(itemSelected);
+    console.log(itemQuantity);
     let price = division.children[4].children[1];
 
     //subtotal price
@@ -42,6 +60,18 @@ function addToCart(event) {
     addingPrice = addingPrice.replace(/,/g, "");
     addingPrice = parseInt(addingPrice);
 
+
+    // const selectElem = document.getElementById('select');
+    // const pElem = document.getElementById('item');
+
+    // // When a new <option> is selected
+    // selectElem.addEventListener('change', () => {
+    //     const index = selectElem.selectedIndex + 1;
+    //     // Add that data to the <p>
+    //     pElem.textContent = index;
+    // })
+
+
     //clone the div and add to summary side
     let itemDiv = document.querySelector('.itemDiv');
     let cloneItemDiv = itemDiv.cloneNode(true);
@@ -49,7 +79,8 @@ function addToCart(event) {
     itemDivContainer.append(cloneItemDiv);
 
     cloneItemDiv.children[0].innerText = pdtName.innerHTML;
-    cloneItemDiv.children[1].innerText = price.innerHTML;
+    //cloneItemDiv.children[1].innerText = itemQuantity.innerHTML;
+    cloneItemDiv.children[2].innerText = price.innerHTML;
 
 
     //number of item selected

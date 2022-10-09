@@ -28,8 +28,9 @@
                         <div class="mt-[30px] md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
                             <p class="text-xs leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">RF291</p>
                             <div class="flex items-center justify-between w-full pt-1">
-                                <p class="pdtName text-base font-black leading-none text-gray-800 dark:text-white">North wolf bag</p>
-                                <select aria-label="Select quantity" class="selectedQuantity py-2 px-1 border border-gray-200 mr-6 focus:outline-none dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+                                <p class="pdtName text-base font-black leading-none text-gray-800 dark:text-white">North wolf bag </p>
+
+                                <select aria-label="Select quantity" id="select" class="selectedQuantity py-2 px-1 border border-gray-200 mr-6 focus:outline-none dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
                                     <option>01</option>
                                     <option>02</option>
                                     <option>03</option>
@@ -56,9 +57,9 @@
                             <div class="flex items-center justify-between w-full pt-1">
                                 <p class="text-base font-black leading-none text-gray-800 dark:text-white">LW sneakers</p>
                                 <select aria-label="Select quantity" class="py-2 px-1 border border-gray-200 mr-6 focus:outline-none dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
-                                    <option>01</option>
-                                    <option>02</option>
-                                    <option>03</option>
+                                    <option class="selectQuantity">01</option>
+                                    <option class="selectQuantity">02</option>
+                                    <option class="selectQuantity">03</option>
                                 </select>
                             </div>
                             <p class="text-xs leading-3 text-gray-600 dark:text-white py-4">Color: Black</p>
@@ -109,6 +110,7 @@
                             <p class="itemDivContainer lg:text-4xl text-3xl font-black leading-9 text-gray-800 dark:text-white">Summary</p>
                             <div class="itemDiv flex items-center justify-between pt-16">
                                 <p class="itemAdded text-base leading-none text-gray-800 dark:text-white">Subtotal</p>
+                                <p id="item"></p>
                                 <p class="priceCal text-base leading-none text-gray-800 dark:text-white">$0</p>
                             </div>
                             <div class="flex items-center justify-between pt-5">
