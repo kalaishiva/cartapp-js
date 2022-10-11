@@ -26,11 +26,16 @@ function addToCart(event) {
     let pdtName = division.children[1].children[0];
     let itemQuantity = division.children[1].children[1];
 
-    //option selected
-    let itemSelected = itemQuantity.options[itemQuantity.selectedIndex].text;
+
+
+    //option selected 
+    let itemSelected = parseInt(itemQuantity.options[itemQuantity.selectedIndex].text);
+    // console.log(itemSelected);
     console.log(itemSelected);
-    console.log(itemQuantity);
+
     let price = division.children[4].children[1];
+    // itemQuantity = itemPrice * price;
+    console.log(price);
 
     //subtotal price
     let subtotal = priceCal.innerHTML; //$0
@@ -75,11 +80,15 @@ function addToCart(event) {
     //clone the div and add to summary side
     let itemDiv = document.querySelector('.itemDiv');
     let cloneItemDiv = itemDiv.cloneNode(true);
+    console.log(cloneItemDiv);
+
 
     itemDivContainer.append(cloneItemDiv);
+    //console.log(itemDivContainer.append(newSpan));
 
     cloneItemDiv.children[0].innerText = pdtName.innerHTML;
-    //cloneItemDiv.children[1].innerText = itemQuantity.innerHTML;
+
+    cloneItemDiv.children[1].innerText = itemSelected;
     cloneItemDiv.children[2].innerText = price.innerHTML;
 
 
@@ -87,14 +96,17 @@ function addToCart(event) {
     itemPrice = price.innerHTML.substring(1);
     itemPrice = itemPrice.replace(/,/g, "");
     itemPrice = parseInt(itemPrice);
+    console.log(itemPrice); //9000
+
+    itemPrice = itemPrice * itemSelected;
 
     //add selected item price
     subtotal = subtotal + itemPrice;
-    console.log(subtotal)
+    // console.log(subtotal)
 
     //adding shipping price and tax price to get total price
     addingPrice = subtotal + shippingPrice + taxPrice;
-    console.log(addingPrice);
+    // console.log(addingPrice);
 
     //subtotal price
     // Add $ and comma into the number
